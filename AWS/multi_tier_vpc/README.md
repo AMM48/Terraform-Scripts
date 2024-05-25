@@ -18,6 +18,8 @@ In addition to the mentioned resources, this configuration includes Route53 for 
 - RDS
 - ACM
 - SSM
+- IAM
+- Cloudwatch
 
 ## Architecture
 
