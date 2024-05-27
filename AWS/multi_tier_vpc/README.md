@@ -1,4 +1,4 @@
-# Multi Tier Architecture
+# Multi-Tier Architecture
 
 ## Overview
 

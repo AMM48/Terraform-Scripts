@@ -1,4 +1,4 @@
-# Serverless-Email-Reminder
+# Serverless Email Reminder
 
 ## Overview
 
