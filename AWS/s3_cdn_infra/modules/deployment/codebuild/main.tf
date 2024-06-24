@@ -25,21 +25,10 @@ resource "aws_codebuild_project" "portfolio_website" {
 version: 0.2
 
 phases:
-  install:
-    commands:
-      - echo Installing Angular CLI...
-      - npm install -g @angular/cli
-      - echo Installing source NPM dependencies...
-      - npm install
-  build:
-    commands:
-      - echo Build started on `date`
-      - ng build
-
   post_build:
     commands:
       - echo Build completed on `date`
-      - aws s3 sync ./dist/my-portfolio/browser/ s3://${var.s3_bucket_id} --region me-south-1 --delete
+      - aws s3 sync ./dist/my-portfolio/browser/ s3://amm-portfolio-bucket --region me-south-1 --delete
 EOF
   }
   tags = {
@@ -51,4 +40,15 @@ EOF
 resource "aws_codebuild_webhook" "Webhook" {
   project_name = aws_codebuild_project.portfolio_website.name
   build_type   = "BUILD"
+  filter_group {
+    filter {
+      type    = "EVENT"
+      pattern = "PUSH,PULL_REQUEST_MERGED"
+    }
+
+    filter {
+      type    = "HEAD_REF"
+      pattern = "^refs/heads/main$"
+    }
+  }
 }

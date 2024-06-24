@@ -16,12 +16,12 @@ In addition to the mentioned resources, this configuration includes IAM roles fo
 - LAMBDA
 - SFN
 - API Gateway
-- Cloudfront
+- CloudFront
 - S3
 - R53
 - ACM
 - IAM
-- Cloudwatch
+- CloudWatch 
 
 ## Architecture
 

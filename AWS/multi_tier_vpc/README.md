@@ -19,7 +19,7 @@ In addition to the mentioned resources, this configuration includes Route53 for 
 - ACM
 - SSM
 - IAM
-- Cloudwatch
+- CloudWatch
 
 ## Architecture
 
